@@ -1,0 +1,293 @@
+// Girpstone Security — Prisma Schema
+// PostgreSQL + All 7 Backend Modules
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── AUTH ──────────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  passwordHash  String?
+  image         String?
+  role          UserRole  @default(EDITOR)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts Account[]
+  sessions Session[]
+  posts    Post[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  EDITOR
+  VIEWER
+}
+
+// ─── CLIENT MANAGEMENT ────────────────────────────────────
+
+model Client {
+  id        String       @id @default(cuid())
+  name      String
+  email     String       @unique
+  phone     String?
+  company   String?
+  address   String?
+  tier      ClientTier   @default(STANDARD)
+  status    ClientStatus @default(ACTIVE)
+  notes     String?      @db.Text
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  quotes         Quote[]
+  serviceRequests ServiceRequest[]
+
+  @@map("clients")
+}
+
+enum ClientTier {
+  STANDARD
+  ELITE
+  CORPORATE
+}
+
+enum ClientStatus {
+  ACTIVE
+  INACTIVE
+  PROSPECT
+}
+
+// ─── QUOTE MANAGEMENT ─────────────────────────────────────
+
+model Quote {
+  id          String      @id @default(cuid())
+  clientId    String
+  serviceType String
+  scope       String      @db.Text
+  locations   String[]
+  amountUsd   Decimal     @db.Decimal(10, 2)
+  status      QuoteStatus @default(DRAFT)
+  validUntil  DateTime
+  notes       String?     @db.Text
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@map("quotes")
+}
+
+enum QuoteStatus {
+  DRAFT
+  SENT
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+// ─── SERVICE REQUESTS ─────────────────────────────────────
+
+model ServiceRequest {
+  id          String         @id @default(cuid())
+  clientId    String?
+  name        String
+  email       String
+  phone       String?
+  type        String
+  urgency     Urgency        @default(MEDIUM)
+  location    String
+  description String         @db.Text
+  status      RequestStatus  @default(PENDING)
+  assignedTo  String?
+  resolvedAt  DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  client Client? @relation(fields: [clientId], references: [id])
+
+  @@map("service_requests")
+}
+
+enum Urgency {
+  LOW
+  MEDIUM
+  HIGH
+  EMERGENCY
+}
+
+enum RequestStatus {
+  PENDING
+  ASSIGNED
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+// ─── BLOG CMS ─────────────────────────────────────────────
+
+model Post {
+  id             String      @id @default(cuid())
+  title          String
+  slug           String      @unique
+  content        String      @db.Text
+  excerpt        String?
+  coverImage     String?
+  authorId       String
+  category       String      @default("General")
+  published      Boolean     @default(false)
+  publishedAt    DateTime?
+  seoTitle       String?
+  seoDescription String?
+  viewCount      Int         @default(0)
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+
+  @@map("posts")
+}
+
+// ─── NEWSLETTER ───────────────────────────────────────────
+
+model Subscriber {
+  id           String           @id @default(cuid())
+  email        String           @unique
+  name         String?
+  status       SubscriberStatus @default(ACTIVE)
+  subscribedAt DateTime         @default(now())
+  unsubscribed DateTime?
+
+  @@map("newsletter_subscribers")
+}
+
+model Campaign {
+  id         String           @id @default(cuid())
+  subject    String
+  content    String           @db.Text
+  status     CampaignStatus   @default(DRAFT)
+  sentAt     DateTime?
+  openCount  Int              @default(0)
+  clickCount Int              @default(0)
+  createdAt  DateTime         @default(now())
+
+  @@map("newsletter_campaigns")
+}
+
+enum SubscriberStatus {
+  ACTIVE
+  UNSUBSCRIBED
+}
+
+enum CampaignStatus {
+  DRAFT
+  SENT
+}
+
+// ─── LEADS / ANALYTICS ────────────────────────────────────
+
+model Lead {
+  id              String     @id @default(cuid())
+  name            String
+  email           String
+  phone           String?
+  source          LeadSource @default(CONTACT_FORM)
+  serviceInterest String?
+  message         String?    @db.Text
+  status          LeadStatus @default(NEW)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  @@map("leads")
+}
+
+enum LeadSource {
+  HERO_CTA
+  CONTACT_FORM
+  WHATSAPP
+  NEWSLETTER
+  REFERRAL
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  LOST
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  referrer  String?
+  ipHash    String?
+  createdAt DateTime @default(now())
+
+  @@map("page_views")
+}
+
+// ─── TESTIMONIALS ─────────────────────────────────────────
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  author    String
+  company   String?
+  content   String   @db.Text
+  rating    Int      @default(5)
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("testimonials")
+}

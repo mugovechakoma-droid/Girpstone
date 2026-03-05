@@ -4,20 +4,41 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a2e1f;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+}
+
+@layer components {
+  .btn-premium {
+    @apply px-8 py-4 bg-deep-green text-white rounded-full font-bold transition-all hover:bg-opacity-90 hover:scale-105 active:scale-95;
+  }
+  
+  .btn-outline {
+    @apply px-8 py-4 border-2 border-deep-green text-deep-green rounded-full font-bold transition-all hover:bg-deep-green hover:text-white hover:scale-105 active:scale-95;
+  }
+
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8;
+  }
 }
 
 @layer utilities {
