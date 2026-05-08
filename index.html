@@ -243,10 +243,13 @@
                         <li style="margin-bottom: 15px;"><i class="fas fa-envelope" style="color: var(--accent-orange); margin-right: 10px;"></i> info@girpstonsecurity.com</li>
                         <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange); margin-right: 10px;"></i> 115 Leopold Takawira St, Harare</li>
                     </ul>
-                    <form action="#">
-                        <input type="text" placeholder="Your Name" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;">
-                        <input type="email" placeholder="Your Email" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;">
-                        <textarea placeholder="Tell us about your security needs" rows="4" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;"></textarea>
+                    <form action="message.php" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;" required>
+                        <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;" required>
+                        <textarea name="message" placeholder="Tell us about your security needs" rows="4" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;" required></textarea>
+                        <div class="button-area" style="text-align: center; margin-bottom: 20px;">
+                            <span style="display: none; font-weight: bold;"></span>
+                        </div>
                         <button type="submit" class="btn-premium" style="width: 100%;">Send Secure Message</button>
                     </form>
                 </div>
@@ -285,5 +288,6 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script src="script.js"></script>
 </body>
 </html>
