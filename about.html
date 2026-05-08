@@ -6,6 +6,7 @@
     <title>About Us | Girpstone Security</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
     <!-- Page Header -->
     <section class="hero" style="height: 40vh;">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-right">
                 <h1>About Girpstone</h1>
                 <p>Establishing the global standard in elite protection and intelligence-led security solutions.</p>
             </div>
@@ -121,5 +122,14 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: "ease-out-cubic",
+            once: true,
+            offset: 50
+        });
+    </script>
 </body>
 </html>
