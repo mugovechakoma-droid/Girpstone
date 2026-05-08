@@ -54,6 +54,7 @@ h6 {
 }
 
 .glass-panel {
+  transition: all 0.4s ease-out;
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -64,6 +65,7 @@ h6 {
 
 .btn-premium {
   background: var(--deep-green);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   color: var(--primary-white);
   padding: 16px 32px;
   border-radius: 50px;
@@ -71,7 +73,7 @@ h6 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-out;
   border: none;
   display: inline-block;
   cursor: pointer;
@@ -79,8 +81,8 @@ h6 {
 
 .btn-premium:hover {
   background: var(--accent-orange);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
 }
 
 .btn-outline {
@@ -93,12 +95,13 @@ h6 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-out;
   display: inline-block;
 }
 
 .btn-outline:hover {
   background: var(--deep-green);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   color: var(--primary-white);
 }
 
@@ -109,7 +112,7 @@ h6 {
   width: 100%;
   z-index: 1000;
   padding: 20px 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-out;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--soft-gray);
@@ -138,7 +141,7 @@ h6 {
   color: var(--deep-green);
   font-weight: 600;
   font-size: 0.9rem;
-  transition: color 0.3s;
+  transition: color 0.4s ease-out;
 }
 
 .nav-links a:hover {
@@ -260,7 +263,7 @@ h6 {
 
 .service-card {
   padding: 50px 40px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s ease-out;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -268,8 +271,9 @@ h6 {
 }
 
 .service-card:hover {
-  transform: translateY(-15px);
+  transform: translateY(-10px);
   background: var(--deep-green);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 .service-card:hover h4,
@@ -292,6 +296,7 @@ h6 {
 .stats-section {
   padding: var(--section-padding);
   background: var(--deep-green);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   color: var(--primary-white);
 }
 
@@ -373,6 +378,7 @@ h6 {
 /* Footer */
 footer {
   background: var(--deep-green);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   color: var(--primary-white);
   padding: 80px 0 40px;
 }
@@ -401,7 +407,7 @@ footer {
 .footer-col ul li a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.4s ease-out;
   font-size: 0.9rem;
 }
 
@@ -506,12 +512,13 @@ footer {
     font-size: 2rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     z-index: 999;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease-out;
     text-decoration: none;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
     background: #128c7e;
 }
 
@@ -529,7 +536,7 @@ footer {
 
 .logo-slider img {
     height: 40px;
-    transition: all 0.3s;
+    transition: all 0.4s ease-out;
 }
 
 .logo-slider img:hover {
@@ -576,6 +583,7 @@ footer {
 
 .comparison-table th {
     background: var(--deep-green);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     color: white;
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -645,14 +653,14 @@ footer {
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease-out;
     border: 1px solid var(--soft-gray);
 }
 
 .industry-card:hover {
     transform: translateY(-10px);
     border-color: var(--accent-orange);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 .industry-card i {
@@ -683,6 +691,7 @@ footer {
     width: 60px;
     height: 60px;
     background: var(--deep-green);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -748,4 +757,8 @@ footer {
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+.glass-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }

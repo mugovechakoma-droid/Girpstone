@@ -6,6 +6,7 @@
     <title>Payment Portal | Girpstone Security</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
     <!-- Page Header -->
     <section class="hero" style="height: 30vh;">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-down">
                 <h1>Secure Payment Portal</h1>
                 <p>Ensuring transparent and encrypted financial transactions for our global partners.</p>
             </div>
@@ -39,14 +40,14 @@
     <!-- Payment Methods -->
     <section class="services-section">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>Authorized Payment Methods</h2>
                 <div class="divider"></div>
             </div>
             
             <div class="card-grid">
                 <!-- Bank Details -->
-                <div class="service-card glass-panel" style="padding: 40px;">
+                <div class="service-card glass-panel" style="padding: 40px;" data-aos="fade-up">
                     <i class="fas fa-university" style="color: var(--accent-orange);"></i>
                     <h4 style="margin-bottom: 24px;">Bank Transfer</h4>
                     <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
@@ -59,7 +60,7 @@
                 </div>
 
                 <!-- EcoCash -->
-                <div class="service-card glass-panel" style="padding: 40px;">
+                <div class="service-card glass-panel" style="padding: 40px;" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-mobile-alt" style="color: var(--accent-orange);"></i>
                     <h4 style="margin-bottom: 24px;">EcoCash</h4>
                     <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
@@ -69,7 +70,7 @@
                 </div>
 
                 <!-- USSD / Innbucks -->
-                <div class="service-card glass-panel" style="padding: 40px;">
+                <div class="service-card glass-panel" style="padding: 40px;" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-bolt" style="color: var(--accent-orange);"></i>
                     <h4 style="margin-bottom: 24px;">USSD (Innbucks)</h4>
                     <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
@@ -120,5 +121,14 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: "ease-out-cubic",
+            once: true,
+            offset: 50
+        });
+    </script>
 </body>
 </html>
