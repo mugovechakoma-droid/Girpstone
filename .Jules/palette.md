@@ -1,0 +1,3 @@
+## 2024-05-08 - Forms Missing Accessible Labels and Data Attributes
+**Learning:** Found a specific pattern in this application where input elements rely solely on `placeholder` attributes for context, completely omitting `<label>` tags or `aria-label`s. This makes forms inaccessible to screen readers. Furthermore, inputs are missing `name` attributes, which would prevent native form submissions to endpoints like `formsubmit.co` from working correctly.
+**Action:** When working on generic HTML templates, always check for and add `aria-label` or `<label>` elements for screen readers. Also, ensure inputs have `name` attributes for backend processing and `required` attributes for built-in browser validation feedback.
