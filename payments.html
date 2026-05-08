@@ -77,6 +77,40 @@
                         <li style="margin-bottom: 0;"><strong>Number:</strong> +263 78 292 9681</li>
                     </ul>
                 </div>
+
+                <!-- PayPal -->
+                <div class="service-card glass-panel" style="padding: 40px;">
+                    <i class="fab fa-paypal" style="color: var(--accent-orange);"></i>
+                    <h4 style="margin-bottom: 24px;">PayPal</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 20px;">Pay securely via PayPal.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="accounts@girpstonsecurity.com">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="item_name" value="Security Services Payment">
+                        <div style="margin-bottom: 15px;">
+                            <input type="number" name="amount" placeholder="Amount (USD)" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        <button type="submit" class="btn-premium" style="width: 100%; padding: 10px;">Pay with PayPal</button>
+                    </form>
+                </div>
+
+                <!-- Credit/Debit Card -->
+                <div class="service-card glass-panel" style="padding: 40px;">
+                    <i class="fas fa-credit-card" style="color: var(--accent-orange);"></i>
+                    <h4 style="margin-bottom: 24px;">Credit / Debit Card</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 20px;">Pay securely with your card via PayPal Guest Checkout.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="accounts@girpstonsecurity.com">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="item_name" value="Security Services Payment">
+                        <div style="margin-bottom: 15px;">
+                            <input type="number" name="amount" placeholder="Amount (USD)" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        <button type="submit" class="btn-premium" style="width: 100%; padding: 10px;">Pay with Card</button>
+                    </form>
+                </div>
             </div>
 
             <!-- Trust Message -->
