@@ -1,0 +1,3 @@
+## 2024-05-09 - Missing Semantic & Accessible Form Attributes
+**Learning:** Many base HTML templates (such as those used for contact forms in `index.html`, `contact.html`, and `blog.html`) lack essential accessibility and semantic attributes like `name`, `aria-label`, and `required`. They often rely solely on the `placeholder` attribute, which is not read by all screen readers and provides poor UX. The submit button in `blog.html` even incorrectly used a `placeholder` attribute.
+**Action:** When working with forms or bringing in external templates, always verify that inputs have explicit `name`, `aria-label`, and `required` attributes to ensure keyboard, screen reader accessibility, and proper form submission data mapping.
