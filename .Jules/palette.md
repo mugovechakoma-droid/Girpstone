@@ -1,0 +1,3 @@
+## 2024-05-10 - HTML Templates Missing Form Accessibility and Functionality Attributes
+**Learning:** Found an accessibility and functionality issue pattern where base HTML templates' forms lack `aria-label`, `name`, and `required` attributes, relying solely on non-accessible `placeholder` attributes. They also may be missing DOM elements expected by scripts (e.g. `.button-area span`).
+**Action:** When updating or reviewing HTML forms from these templates, explicitly add `aria-label`, `name`, and `required` attributes. Verify that any expected DOM elements for feedback/status messages exist to ensure the JS functionality does not break.
