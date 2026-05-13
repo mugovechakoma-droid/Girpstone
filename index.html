@@ -244,9 +244,9 @@
                         <li><i class="fas fa-map-marker-alt" style="color: var(--accent-orange); margin-right: 10px;"></i> 115 Leopold Takawira St, Harare</li>
                     </ul>
                     <form action="#">
-                        <input type="text" placeholder="Your Name" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;">
-                        <input type="email" placeholder="Your Email" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;">
-                        <textarea placeholder="Tell us about your security needs" rows="4" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;"></textarea>
+                        <input type="text" placeholder="Your Name" aria-label="Your Name" name="name" required style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                        <input type="email" placeholder="Your Email" aria-label="Your Email" name="email" required style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                        <textarea placeholder="Tell us about your security needs" aria-label="Tell us about your security needs" name="message" required rows="4" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd;"></textarea>
                         <button type="submit" class="btn-premium" style="width: 100%;">Send Secure Message</button>
                     </form>
                 </div>
@@ -281,8 +281,8 @@
     </footer>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/263772464452" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/263772464452" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
 </body>
