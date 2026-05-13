@@ -72,13 +72,13 @@
                     <p style="color: var(--text-muted); margin-bottom: 40px;">Our tactical response team will review your inquiry and respond within 60 minutes.</p>
                     <form action="https://formsubmit.co/mugovechakoma@gmail.com" method="POST">
                         <div style="margin-bottom: 20px;">
-                            <input type="text" placeholder="Full Name" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;">
+                            <input type="text" placeholder="Full Name" aria-label="Full Name" name="name" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;">
                         </div>
                         <div style="margin-bottom: 20px;">
-                            <input type="email" placeholder="Corporate Email" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;">
+                            <input type="email" placeholder="Corporate Email" aria-label="Corporate Email" name="email" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;">
                         </div>
                         <div style="margin-bottom: 20px;">
-                            <textarea placeholder="How can we assist you?" rows="5" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;"></textarea>
+                            <textarea placeholder="How can we assist you?" aria-label="How can we assist you?" name="message" required rows="5" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;"></textarea>
                         </div>
                         <button type="submit" class="btn-premium" style="width: 100%;">Initiate Consultation</button>
                     </form>
