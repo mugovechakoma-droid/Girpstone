@@ -1,0 +1,3 @@
+## 2026-05-16 - Icon-Only Link Accessibility & Security
+**Learning:** Decorative font icons inside links or buttons often cause screen readers to read unintelligible classes unless explicitly hidden with `aria-hidden="true"`, and the parent link itself requires an `aria-label` for context. Furthermore, external links opening in new tabs (`target="_blank"`) must use `rel="noopener noreferrer"` to prevent reverse tabnabbing vulnerabilities.
+**Action:** When adding or encountering standalone icon links (like a floating WhatsApp button), always ensure the `<a>` has an explicit `aria-label`, the `<i>` has `aria-hidden="true"`, and external links include `rel="noopener noreferrer"`.
